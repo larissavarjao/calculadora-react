@@ -1,13 +1,20 @@
-$white: #fbfbfb;
+@import url('https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:400,700');
+
+$font-text: 'Yanone Kaffeesatz', sans-serif;
 
 $mobile: "(max-width: 700px)";
 $tablet: "(max-width: 1280px)";
 $screen-xlg: "screen and (min-width: 1281px)";
 $screen-xxlg: "screen and (min-width: 1600px)";
+$tela-perc: 100%;
 
-@mixin flex($dir, $jus, $alg) {
+$white: #fbfbfb;
+$vermelho-terra: #B92D00;
+$background-calculator: #303030;
+
+@mixin display-flex($direction, $justify, $align){
     display: flex;
-    flex-direction: $dir;
-    justify-content: $jus;
-    align-items: $alg;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $align;
 }

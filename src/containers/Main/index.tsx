@@ -4,6 +4,8 @@ import { observable } from "mobx";
 import { RouteComponentProps, withRouter, Route, NavLink, Link, Switch, Redirect } from "react-router-dom";
 import { observer, inject } from "mobx-react";
 
+import Cover from '../Cover/index'
+
 const s = require("./style.scss");
 
 interface IMainProps extends Partial<RouteComponentProps<IMainProps>> {
@@ -26,12 +28,12 @@ export default class Main extends React.Component<IMainProps, IMainState> {
         return (
             <div className={s.main}>
                 <main>
-                    {/* <Switch>
-                        <Route path="/esperas" render={() => <Queue />} />
-                        <Route path="/reservas" render={() => <Reservations />} />
+                    {
+                        <Route path="/" render={() => <Cover />} />
+                        /*<Route path="/reservas" render={() => <Reservations />} />
                         <Route path="/historico" render={() => <History />} />
                         <Route exact path="/" render={() => <Redirect to="/esperas" />} />
-                    </Switch> */}
+                    */}
                 </main>
             </div>
         );

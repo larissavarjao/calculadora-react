@@ -2,8 +2,8 @@
   "name": "calculadora-churrasco",
   "version": "1.0.0",
   "main": "index.js",
-  "repository": "git@git.cubos.io:cubos/calculadora-churrasco.git",
-  "author": "Cubos",
+  "repository": "https://github.com/larissavarjao/calculadora-react",
+  "author": "Larissa Varjão",
   "license": "MIT",
   "scripts": {
     "dev": "webpack-dev-server -d --history-api-fallback --inline --port 6010 --config ./webpack.config.js"
