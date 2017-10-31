@@ -1,0 +1,13 @@
+$white: #fbfbfb;
+
+$mobile: "(max-width: 700px)";
+$tablet: "(max-width: 1280px)";
+$screen-xlg: "screen and (min-width: 1281px)";
+$screen-xxlg: "screen and (min-width: 1600px)";
+
+@mixin flex($dir, $jus, $alg) {
+    display: flex;
+    flex-direction: $dir;
+    justify-content: $jus;
+    align-items: $alg;
+}
