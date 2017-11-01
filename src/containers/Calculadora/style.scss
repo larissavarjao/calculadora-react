@@ -1,0 +1,99 @@
+@import "global-style.scss";
+
+.options{
+    width: 100vw;
+    height: 100vh;
+    @include display-flex(row, center, center);
+    
+    .calculadora {
+        @include display-flex(column, center, center);
+        border-radius: 10px;
+        background-color: $background-calculator;
+        position: relative;
+        z-index: 9;
+        height: 70%;
+        width: 55%;
+        color: white;
+        
+        h1 {
+            text-transform: uppercase;
+        }
+        .optionsIcons{
+            position: absolute;
+            top: 4%;
+            left: 3%;
+            
+            .optionsBottons {
+                position: relative;
+                
+            }
+        }
+        
+        img{
+            position: relative;
+            padding: 0.5%;
+            width: 5%;
+
+            &:hover {   
+                cursor: pointer;
+            }
+        }
+        
+        .optionsOptions {
+            @include display-flex(row, center, center);
+            width: 100%;
+            height: 50vh;
+            text-align: center;
+            
+            p, input, button {
+                margin: 3%;
+            }
+        }
+        
+        .optionsInput {
+            position: relative;
+            @include display-flex(column, space-around, center);
+            width: 40%;
+            height: 50vh;
+            
+            input {
+                width: 30%;
+                background-color: $background-calculator;
+                border: solid $vermelho-terra 2px;
+                color: white;
+                font-family: Yanone Kaffeesatz, sans-serif;
+                font-size: 11pt;
+                text-align: center;
+            }
+            
+            .calculate {
+                text-transform: uppercase;
+                padding: 5%;
+                background-color: $vermelho-terra;
+                border: none;
+                color: white;
+                font-family: Yanone Kaffeesatz, sans-serif;
+                font-size: 12pt;
+                letter-spacing: 4px;
+                
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+        }
+        
+        .optionsAnswer {
+            @extend .optionsInput;
+            p {
+                margin: 5%;
+            }
+        }
+        
+        .optionsTitle {
+            text-transform: uppercase;
+            color: white;
+            //@include display-flex(column, center, center);
+            margin: 0;
+        }
+    }
+}

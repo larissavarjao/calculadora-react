@@ -2,16 +2,6 @@
 
 
 .cover {
-    .coverBackground {
-        z-index: 1;
-        img {
-            width: $tela-perc;
-            height: $tela-perc;
-            object-fit: cover;
-            position: absolute;
-        }
-    }
-
     .coverText{
         position: absolute;
         z-index: 4;
@@ -23,12 +13,6 @@
         .coverTitle {
             font-size: 50pt;
             text-transform: uppercase;
-        }
-
-        .coverOptions {
-            width: 60%;
-            height: 45%;
-            @include display-flex(row, space-around, center);
         }
     }
 }

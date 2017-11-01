@@ -1,3 +1,11 @@
 @import "global-style.scss";
 
-
+.coverBackground {
+    z-index: 1;
+    img {
+        width: $tela-perc;
+        height: $tela-perc;
+        object-fit: cover;
+        position: absolute;
+    }
+}
