@@ -40,19 +40,19 @@ export default class Options extends React.Component<IOptionsProps, ICalculadora
         return (
             <div className={s.coverOptions}>
                 <div className={s.coverItem}>
-                    <Link to='churrasco'>
+                    <Link to='/calculadora/churrasco'>
                         <img src={require("../../assets/meat-icon.png")} />
                         <h3>Churrasco</h3>
                     </Link>
                 </div>
                 <div className={s.coverItem}>
-                    <Link to='bebidas'>
+                    <Link to='/calculadora/bebidas'>
                         <img src={require("../../assets/beer-icon.png")} />
                         <h3>Bebidas</h3>
                     </Link>
                 </div>
                 <div className={s.coverItem}>
-                    <Link to='pizza'>
+                    <Link to='/calculadora/pizza'>
                         <img src={require("../../assets/pizza-icon.png")} />
                         <h3>Pizza</h3>
                     </Link>

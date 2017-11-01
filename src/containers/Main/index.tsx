@@ -5,9 +5,6 @@ import { RouteComponentProps, withRouter, Route, NavLink, Link, Switch, Redirect
 import { observer, inject } from "mobx-react";
 
 import Cover from '../Cover/index'
-import Churrasco from '../../components/Churrasco/index'
-import Pizza from '../../components/Pizza/index'
-import Bebidas from '../../components/Bebidas/index'
 import Calculadora from '../Calculadora/index'
 
 const background = require("../Main/background-cover.png");
@@ -38,9 +35,7 @@ export default class Main extends React.Component<IMainProps, IMainState> {
                 <main>
                     {
                     <Switch>
-                        <Route path="/churrasco" render={() => <Churrasco />} />
-                        <Route path="/pizza" render={() => <Pizza />} />
-                        <Route path="/bebidas" render={() => <Bebidas />} />
+                        <Route path="/calculadora/:type" render={({match}) => <Calculadora type={match.params.type} />} />
                         <Route path="/" render={() => <Cover />} />
                     </Switch> 
                     }

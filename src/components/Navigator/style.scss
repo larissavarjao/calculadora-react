@@ -1,0 +1,25 @@
+@import "global-style.scss";
+
+.optionsIcons{
+    position: absolute;
+    top: 4%;
+    left: 3%;
+    
+    .optionsBottons {
+        position: relative;
+    }
+
+    img{
+        position: relative;
+        padding: 0.5%;
+        width: 5%;
+
+        &:hover {   
+            cursor: pointer;
+        }
+    }
+
+    .active {
+        width: 7%;
+    }
+}

@@ -3,43 +3,42 @@ import * as React from "react";
 import { observable } from "mobx";
 import { RouteComponentProps, withRouter, Route, NavLink, Link, Switch, Redirect } from "react-router-dom";
 import { observer, inject } from "mobx-react";
+import Navigator from '../../components/Navigator'
 
-const back = require("../../assets/back-icon.png");
-const beer = require("../../assets/beer-icon.png");
-const meat = require("../../assets/meat-icon.png");
-const pizza = require("../../assets/pizza-icon.png");
 const s = require("./style.scss");
 
 interface ICalculadoraProps extends Partial<RouteComponentProps<ICalculadoraProps>> {
-    history?: any;
-    title?: string;
-    optionCarne?: boolean;
-    titleCarne?: string;
-    optionFrango?: boolean;
-    titleFrango?: string;
-    optionPao?: boolean;
-    titlePao?: string;
-    gramas1?: string;
-    gramas2?: string;
-    gramas3?: string;
-    value?: any;
+    type: string;
 }
 
 @(withRouter as any)
 @observer
 @autobind
 export default class Calculadora extends React.Component<ICalculadoraProps> {
-
-    goTo(path: string) {
-        this.props.history.push(path);
-    }
-
-    constructor(props: any) {
-        super(props);
-        this.state = {value: ''};
     
-        this.handleChange = this.handleChange.bind(this);
-      }
+    @observable title: string = "";
+    @observable valueAdults: number = 0;
+    @observable valueChildren: number = 0;
+    @observable meat: number = 0;
+    @observable chicken: number = 0;
+    @observable aperetivo: number = 0;
+    @observable beer: number = 0;
+    @observable soda: number = 0;
+    @observable pizza: number = 0;
+
+    calculate() {
+        const numberOfPeople = this.valueAdults + (this.valueChildren/2);
+        if(this.props.type === "churrasco"){
+            this.meat = Math.round(numberOfPeople * 0.4);
+            this.chicken = Math.round(numberOfPeople * 0.05);
+            this.aperetivo = numberOfPeople * 1;
+        } else if(this.props.type === "bebidas"){
+            this.soda = numberOfPeople * 1.5;
+            this.beer = numberOfPeople * 4;
+        } else if(this.props.type === "pizza"){
+            this.pizza = Math.ceil(numberOfPeople * 0.5);
+        }
+    }
     
       handleChange(event: any) {
         this.setState({value: event.target.value});
@@ -49,39 +48,48 @@ export default class Calculadora extends React.Component<ICalculadoraProps> {
         return (
             <div className={s.options}>
                 <div className={s.calculadora}>
-                    <div className={s.optionsIcons}>
-                        <Link to='/'>
-                            <img src={back} />
-                        </Link>
-                        <Link to='churrasco'>
-                            <img src={meat} />
-                        </Link>
-                        <Link to='bebidas'>
-                            <img src={beer} />
-                        </Link>
-                        <Link to='pizza'>
-                            <img src={pizza} />
-                        </Link>
-                    </div>
+                   <Navigator type={this.props.type}/>
                     <div>
-                        <h1>{this.props.title}</h1>
+                        <h1>{this.props.type}</h1>
                     </div>
                     <div className={s.optionsOptions}>
                         <div className={s.optionsInput}>
                             <p>Quantidade de adultos</p>
-                            <input type="number" value={this.state.value} id="value-adult" />
+                            <input type="number" value={this.valueAdults} onChange={(e) => {
+                                this.valueAdults = +e.target.value;
+                            }} />
                             <p>Quantidade de crianças</p>
-                            <input type="number" value="0" id="value-child" />       
-                            <button className={s.calculate}>Calcular!</button>
+                            <input type="number" value={this.valueChildren} onChange={(e) => {
+                                this.valueChildren = +e.target.value;
+                            }} />       
+                            <button className={s.calculate} onClick={() => this.calculate()}>Calcular!</button>
                         </div>
-                        <div className={s.optionsAnswer}>
-                            <p>{this.props.titleCarne}</p>
-                            <p>{this.props.gramas1}</p>
-                            <p>{this.props.titleFrango}</p>
-                            <p>{this.props.gramas2}</p>
-                            <p>{this.props.titlePao}</p>
-                            <p>{this.props.gramas3}</p>
+                        {this.props.type === "churrasco" && 
+                            <div className={s.optionsAnswer}>
+                                <p>Quantidade de carne:</p>
+                                <p>{this.meat} kg</p>
+                                <p>Quantidade de frango:</p>
+                                <p>{this.chicken} kg</p>
+                                <p>Quantidade de aperitivo:</p>
+                                <p>{this.aperetivo} pães de alho</p>
+                            </div>
+                        }
+                        {
+                            this.props.type === "bebidas" &&
+                            <div className={s.optionsAnswer}>
+                                <p>Quantidade de refrigerante:</p>
+                                <p>{this.soda} L</p>
+                                <p>Quantidade de cerveja:</p>
+                                <p>{this.beer} latas de 300ml</p>
+                            </div>
+                        }
+                        {
+                            this.props.type === "pizza" &&
+                            <div className={s.optionsAnswer}>
+                                <p>Quantidade de pizza:</p>
+                                <p>{this.pizza} pizzas</p>
                         </div>
+                        }
                     </div>
                 </div>
             </div>

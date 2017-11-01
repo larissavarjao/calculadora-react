@@ -3,6 +3,7 @@ const webpack = require("webpack");
 const combineLoaders = require("webpack-combine-loaders");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const FavIconWebpackPlugin = require("favicons-webpack-plugin");
 
 module.exports = {
     entry: "./src/index",
@@ -96,6 +97,7 @@ module.exports = {
             title: "Styme Host",
             filename: "index.html",
             template: "src/index.html"
-        }),
+        }), 
+        new FavIconWebpackPlugin('./src/assets/meat-color.png'),
     ]
 }
