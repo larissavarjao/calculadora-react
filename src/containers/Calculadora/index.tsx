@@ -22,6 +22,7 @@ interface ICalculadoraProps extends Partial<RouteComponentProps<ICalculadoraProp
     gramas1?: string;
     gramas2?: string;
     gramas3?: string;
+    value?: any;
 }
 
 @(withRouter as any)
@@ -32,6 +33,17 @@ export default class Calculadora extends React.Component<ICalculadoraProps> {
     goTo(path: string) {
         this.props.history.push(path);
     }
+
+    constructor(props: any) {
+        super(props);
+        this.state = {value: ''};
+    
+        this.handleChange = this.handleChange.bind(this);
+      }
+    
+      handleChange(event: any) {
+        this.setState({value: event.target.value});
+      }
 
     render() {
         return (
@@ -57,7 +69,7 @@ export default class Calculadora extends React.Component<ICalculadoraProps> {
                     <div className={s.optionsOptions}>
                         <div className={s.optionsInput}>
                             <p>Quantidade de adultos</p>
-                            <input type="number" value="0" id="value-adult" />
+                            <input type="number" value={this.state.value} id="value-adult" />
                             <p>Quantidade de crianças</p>
                             <input type="number" value="0" id="value-child" />       
                             <button className={s.calculate}>Calcular!</button>
