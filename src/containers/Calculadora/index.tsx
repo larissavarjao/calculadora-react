@@ -40,9 +40,9 @@ export default class Calculadora extends React.Component<ICalculadoraProps> {
         }
     }
     
-      handleChange(event: any) {
+    handleChange(event: any) {
         this.setState({value: event.target.value});
-      }
+    }
 
     render() {
         return (

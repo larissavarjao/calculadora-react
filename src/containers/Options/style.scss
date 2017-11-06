@@ -42,3 +42,27 @@
             }                               
     }
 }
+
+@media screen and (max-width: 425px) {
+    .coverOptions {
+        width: 100%;
+        height: auto;
+        .coverItem {
+            width: 80px;
+            height: 80px;
+            a{
+                h3 {
+                    margin: 0 0 8% 0;
+                    font-size: 12pt;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 426px) and (max-width: 768px) {
+    .coverOptions {
+        width: 100%;
+        height: auto;
+    }
+}

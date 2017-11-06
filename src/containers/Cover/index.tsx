@@ -11,7 +11,7 @@ export default class Cover extends React.Component<any, any> {
             <div className={s.cover}>
                 <div className={s.coverText}>
                     <h1 className={s.coverTitle}>Calculadora de Churrasco</h1>
-                    <h3 className='coverSubtitle'>Escolha a opção abaixo desejada: </h3>
+                    <h3>Escolha a opção abaixo desejada: </h3>
                     <Options />
                 </div>
             </div>

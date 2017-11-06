@@ -64,6 +64,7 @@
         
         .optionsAnswer {
             @extend .optionsInput;
+            height: 20%;
             p {
                 margin: 5%;
             }
@@ -74,6 +75,32 @@
             color: white;
             //@include display-flex(column, center, center);
             margin: 0;
+        }
+    }
+}
+
+@media screen and (max-width: 425px) {
+    .options {
+        .calculadora {
+            width: 80%;
+            height: 75%;
+            border-radius: 10px;
+
+            .optionsAnswer {
+                height: 50%;
+            }
+            optionsInput {
+                input {
+                    width: 60%;
+                }
+            }
+            h1 {
+                font-size: 18pt;
+            }
+        }
+        p {
+            text-align: center;
+            font-size: 9pt;
         }
     }
 }
