@@ -11,7 +11,6 @@ interface ICalculadoraProps extends Partial<RouteComponentProps<ICalculadoraProp
     type: string;
 }
 
-@(withRouter as any)
 @observer
 @autobind
 export default class Calculadora extends React.Component<ICalculadoraProps> {
